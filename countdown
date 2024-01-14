@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <p id="countdown"></p>
+
+    <script>
+        var countDownDate = new Date("Feb 11, 2024 00:00:00").getTime();
+
+        var countdownFunction = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+            document.getElementById("countdown").innerHTML = days + " days left until February 11th, 2024";
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "The day has arrived!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
